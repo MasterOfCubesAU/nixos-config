@@ -3,6 +3,8 @@
 {
     home.username = "brandon";
     home.homeDirectory = "/home/brandon";
+
+    # Dotfiles
     home.file.".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     home.file.".config/nvim/lua".source = ./dotfiles/nvim/lua;
     home.file.".config/i3/config".source = ./dotfiles/i3/config;
@@ -18,12 +20,17 @@
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
+
+
+    # Git
     programs.git = {
         enable = true;
         userEmail = "masterofcubesau@gmail.com";
             userName = "MasterOfCubesAU";
 
     };
+
+    # Neovim
     programs.neovim = {
         enable = true;
         viAlias = true;
@@ -33,6 +40,8 @@
             nixd
         ];
     };
+
+    # zsh & oh-my-zsh
     programs.zsh = {
         enable = true;
         syntaxHighlighting.enable = true;
@@ -43,6 +52,8 @@
             theme = "philips";
         };
     };
+
+    # Alacritty
     programs.alacritty = {
         enable = true;
         settings = {
@@ -50,6 +61,7 @@
         };
     };
 
+    # Package definition
     home.packages = with pkgs; [
         discord
             tmux
@@ -60,5 +72,6 @@
             gcc
             rofi
             flameshot
+            docker
     ];
 }

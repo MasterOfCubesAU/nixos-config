@@ -46,7 +46,7 @@
     users.users.brandon = {
         isNormalUser = true;
         description = "Brandon";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
     };
 
     # Enable automatic login for the user.
@@ -83,18 +83,22 @@
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "25.05"; # Did you read the comment?
 
-        fonts.packages = with pkgs; [
+    fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono
-        ];
+    ];
+
+    # Services
     services = {
         xserver = {
             enable = true;
+            
             # Keyboard
             xkb = {
                 layout = "au";
                 options = "caps:escape";
                 variant = "";
             };
+
             #Desktop 
             desktopManager = {
                 xterm = {
@@ -108,6 +112,7 @@
 
             };
             videoDrivers = ["nvidia"];
+
             # Display
             displayManager = {
                 lightdm = {
@@ -115,18 +120,29 @@
                 };
                 defaultSession = "xfce+i3";
             };
-                windowManager.i3.enable = true;
+
+            # Window manager
+            windowManager.i3.enable = true;
         };
-    };
-    security.sudo.wheelNeedsPassword = false;
-    services.pipewire = {
-        enable = true;
-        alsa = {
+       pipewire = {
             enable = true;
-            support32Bit = true;
+            alsa = {
+                enable = true;
+                support32Bit = true;
+            };
         };
     };
+
+    # Disable sudo password
+    security.sudo.wheelNeedsPassword = false;
+
+    # Pulse audio
     nixpkgs.config.pulseaudio = true;
+
+    # Virtualisation
+    virtualisation.docker = {
+      enable = true;
+    };
 
     hardware.graphics = {
         enable = true;
