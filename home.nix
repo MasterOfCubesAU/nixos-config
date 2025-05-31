@@ -59,5 +59,6 @@
             xclip
             gcc
             rofi
+            flameshot
     ];
 }
