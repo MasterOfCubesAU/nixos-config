@@ -13,6 +13,7 @@
 
     # i3
     home.file.".config/i3/config".source = ./dotfiles/i3/config;
+    home.file.".config/i3/alternating_layouts.py".source = ./dotfiles/i3/alternating_layouts.py;
     
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -79,5 +80,8 @@
             rofi
             flameshot
             docker
+            (pkgs.python312.withPackages (ppkgs: [
+              ppkgs.i3ipc
+            ]))
     ];
 }

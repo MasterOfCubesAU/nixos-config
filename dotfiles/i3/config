@@ -207,4 +207,7 @@ bar {
         status_command i3status
 }
 
-default_border pixel 1
+# Tile windows in a spiral
+exec --no-startup-id ~/.config/i3/alternating_layouts.py
+
+default_border pixel 3
