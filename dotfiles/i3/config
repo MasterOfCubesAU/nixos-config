@@ -61,9 +61,6 @@ bindsym $mod+Shift+f exec --no-startup-id "thunar"
 # Brave
 bindsym $mod+b exec --no-startup-id "brave"
 
-# 1password
-bindsym $mod+p exec --no-startup-id "1password"
-
 # lock screen
 #bindsym $mod+backslash exec --no-startup-id "loginctl lock-session"
 bindsym $mod+backslash exec --no-startup-id "xfce4-screensaver-command --lock"
