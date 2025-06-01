@@ -5,9 +5,15 @@
     home.homeDirectory = "/home/brandon";
 
     # Dotfiles
+
+    # nvim
     home.file.".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     home.file.".config/nvim/lua".source = ./dotfiles/nvim/lua;
+    home.file.".config/nvim/after".source = ./dotfiles/nvim/after;
+
+    # i3
     home.file.".config/i3/config".source = ./dotfiles/i3/config;
+    
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
