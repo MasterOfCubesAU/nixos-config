@@ -118,7 +118,6 @@
                 lightdm = {
                     enable = true;
                 };
-                defaultSession = "xfce+i3";
             };
 
             # Window manager
@@ -131,6 +130,7 @@
                 support32Bit = true;
             };
         };
+        displayManager.defaultSession = "xfce+i3";
     };
 
     # Disable sudo password
