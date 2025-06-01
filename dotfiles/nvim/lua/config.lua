@@ -30,3 +30,7 @@ vim.opt.ignorecase = true
 
 -- Allow full range of colours in terminal
 vim.opt.termguicolors = true
+
+-- Remove default status line
+vim.opt.showmode = false
+
