@@ -4,12 +4,12 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup({
 
-        -- Install for file types that we don't already have
+      ensure_installed = {"javascript", "typescript", "c", "lua", "rust"},
+
         auto_install = true,
 
         highlight = {
           enable = true,
-          -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1573
           additional_vim_regex_highlighting = { "python" },
         },
 
