@@ -55,7 +55,7 @@
         history.size = 10000;
         oh-my-zsh = {
             enable = true;
-            plugins = [ "git" ];
+            plugins = [ "git" "fzf"];
             theme = "philips";
         };
     };
@@ -67,6 +67,9 @@
             terminal.shell.program = "/etc/profiles/per-user/brandon/bin/zsh";
         };
     };
+
+    # fzf
+    programs.fzf.enableZshIntegration = true;
 
     # Package definition
     home.packages = with pkgs; [
@@ -83,5 +86,6 @@
             (pkgs.python312.withPackages (ppkgs: [
               ppkgs.i3ipc
             ]))
+            fzf
     ];
 }
