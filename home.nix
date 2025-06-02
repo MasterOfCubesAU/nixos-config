@@ -88,5 +88,6 @@
               ppkgs.i3ipc
             ]))
             fzf
+            kubectl
     ];
 }
