@@ -7,7 +7,7 @@
 
 {
   home.file = {
-    ".config/polybar/config.ini".source = ./dotfiles/polybar/config.ini;
+    ".config/polybar/docky".source = ./dotfiles/polybar/docky;
   };
   home.packages = with pkgs; [ polybar ];
 }
