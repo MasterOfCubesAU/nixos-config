@@ -13,7 +13,18 @@
 
     # i3
     home.file.".config/i3/config".source = ./dotfiles/i3/config;
-    home.file.".config/i3/alternating_layouts.py".source = ./dotfiles/i3/alternating_layouts.py;
+    home.file.".config/i3/alternating_layouts.py".source = let
+        alternatingLayoutsDeriv = pkgs.stdenv.mkDerivation {
+            name = "alternating-layouts";
+            propagatedBuildInputs = [
+                (pkgs.python312.withPackages (ppkgs: [
+                  ppkgs.i3ipc
+                ]))
+            ];
+            dontUnpack = true;
+            installPhase = "install -Dm755 ${./dotfiles/i3/alternating_layouts.py} $out/bin/alternating-layouts";
+        }; in
+        "${alternatingLayoutsDeriv}/bin/alternating-layouts";
 
     # polybar
     home.file.".config/polybar/config.ini".source = ./dotfiles/polybar/config.ini;
@@ -86,10 +97,7 @@
             gcc
             rofi
             flameshot
-            docker
-            (pkgs.python312.withPackages (ppkgs: [
-              ppkgs.i3ipc
-            ]))
+            python312
             fzf
             kubectl
             polybar
