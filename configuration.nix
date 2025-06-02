@@ -139,6 +139,9 @@
     # Pulse audio
     nixpkgs.config.pulseaudio = true;
 
+    # Use local rtc for windows dual boot
+    time.hardwareClockInLocalTime = true;
+
     # Virtualisation
     virtualisation.docker = {
       enable = true;
