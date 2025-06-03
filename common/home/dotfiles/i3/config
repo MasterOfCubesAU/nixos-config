@@ -213,4 +213,4 @@ exec --no-startup-id ~/.config/i3/alternating_layouts.py
 # Define colours
 client.focused #dc3145 #285577 #ffffff #2e9ef4 #dc3145
 
-default_border pixel 3
+default_border pixel 1
