@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
 
   # Home Manager
   home-manager = {
