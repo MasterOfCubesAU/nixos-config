@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./mpris-proxy.nix
     ./fzf.nix
     ./git.nix
     ./i3.nix
