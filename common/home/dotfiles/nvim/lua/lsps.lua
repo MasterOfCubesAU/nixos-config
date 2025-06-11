@@ -1,10 +1,1 @@
-local lspconfig = require("lspconfig")
-lspconfig.nixd.setup({
-   settings = {
-      nixd = {
-         formatting = {
-            command = { "nixfmt" },
-         },
-      },
-   },
-})
+require("mason-lspconfig").setup()
