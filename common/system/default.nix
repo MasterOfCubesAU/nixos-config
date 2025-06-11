@@ -20,6 +20,10 @@
   nix.registry.home-manager.flake = inputs.home-manager;
   nix.channel.enable = false;
 
+  # Onedrive
+  services.onedrive.enable = true;
+
+
   # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
   # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
