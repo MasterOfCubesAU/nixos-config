@@ -11,6 +11,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     history.size = 10000;
+    initContent = "source ${./dotfiles/zshrc/cse}";
     oh-my-zsh = {
       enable = true;
       plugins = [

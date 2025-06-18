@@ -24,6 +24,7 @@
     nixfmt-rfc-style
 
     # Linux packages
+    sshfs
     rofi
     flameshot
     linux-manual
