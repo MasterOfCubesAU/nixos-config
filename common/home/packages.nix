@@ -25,6 +25,7 @@
 
     # Linux packages
     rofi
+    ripgrep
     flameshot
     linux-manual
     man-pages
