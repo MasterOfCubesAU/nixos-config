@@ -19,8 +19,20 @@
       nixd
       rust-analyzer
       rustfmt
+      gnumake
+      ripgrep
+    ];
+    extraWrapperArgs = [
+      "--suffix"
+      "LD_LIBRARY_PATH"
+      ":"
+      "${lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib ]}"
     ];
   };
+
+  home.activation.clearNeovimCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    rm -rf ~/.cache/nvim/luac
+  '';
 
   home.file = {
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
