@@ -19,4 +19,5 @@
       in
       "${alternatingLayoutsDeriv}/bin/alternating-layouts";
   };
+  home.packages = with pkgs; [ xcwd ];
 }

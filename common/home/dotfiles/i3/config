@@ -51,8 +51,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start a terminal in the last known working dir
+bindsym $mod+Shift+Return exec --no-startup-id "alacritty --working-directory `xcwd`"
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec --no-startup-id "alacritty"
 
 # File explorer
