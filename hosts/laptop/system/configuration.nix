@@ -88,4 +88,15 @@
       STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
+
+  # nix-ld
+  programs.nix-ld.enable = true;
+
+  # Printing
+  services.printing.enable = true;
+  services.avahi = {
+  enable = true;
+  nssmdns4 = true;
+  openFirewall = true;
+};
 }
