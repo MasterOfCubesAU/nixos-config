@@ -10,6 +10,7 @@
     enable = true;
     userEmail = "masterofcubesau@gmail.com";
     userName = "MasterOfCubesAU";
+    lfs.enable = true;
   };
 
 }
