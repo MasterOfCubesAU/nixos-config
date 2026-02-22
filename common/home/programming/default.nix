@@ -13,14 +13,18 @@
   };
 
   config = lib.mkIf config.cube.programming.enable {
-    home.packages = with pkgs; [
-      uv
-      gcc
-      gdb
-      nodejs_22
-      cargo
-      rustc
-      nixfmt
-    ];
+    home.packages =
+      with pkgs;
+      [
+        uv
+        gcc
+        nodejs_22
+        cargo
+        rustc
+        nixfmt
+      ]
+      ++ lib.optionals (!stdenv.isDarwin) [
+        gdb
+      ];
   };
 }
