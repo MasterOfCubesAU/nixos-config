@@ -2,7 +2,10 @@
 
 {
 
-  imports = [ ../../common/system ];
+  imports = [
+    ../../common/system
+    ../../common/system/darwin.nix
+  ];
 
   # System
   nixpkgs.hostPlatform = "aarch64-darwin";
