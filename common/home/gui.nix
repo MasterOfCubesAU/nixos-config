@@ -9,18 +9,18 @@
   options.cube.gui.enable = lib.mkEnableOption "gui";
 
   config = lib.mkIf config.cube.gui.enable {
-    home.packages =
-      with pkgs;
-      [
+    home.packages = lib.mkMerge [
+      (with pkgs; [
         discord
         spotify
         brave
         flameshot
         bruno
         vscode
-      ]
-      ++ lib.optionals (!stdenv.isDarwin) [
-        obs-studio
-      ];
+      ])
+      (lib.mkIf (!pkgs.stdenv.isDarwin) [
+        pkgs.obs-studio
+      ])
+    ];
   };
 }

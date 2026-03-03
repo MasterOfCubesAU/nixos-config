@@ -22,6 +22,7 @@
       tldr
       jq
       bat
+      ffmpeg
     ];
   };
 }

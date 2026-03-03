@@ -15,10 +15,12 @@
   # Allow flakes/experimental
   nix.settings.experimental-features = "nix-command flakes";
 
-  programs = {
-    zsh.enable = true;
-  }
-  // lib.optionalAttrs pkgs.stdenv.isLinux {
-    nix-ld.enable = true;
-  };
+  programs = lib.mkMerge [
+    {
+      zsh.enable = true;
+    }
+    (lib.mkIf pkgs.stdenv.isLinux {
+      nix-ld.enable = true;
+    })
+  ];
 }
