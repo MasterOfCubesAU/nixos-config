@@ -6,6 +6,7 @@
 {
   imports = [
     ./fonts.nix
+    ./podman.nix
   ];
 
   # Set time zone
