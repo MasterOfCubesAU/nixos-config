@@ -20,11 +20,15 @@
         nodejs_22
         cargo
         rustc
+        rust-analyzer
+        rustfmt
         nixfmt
       ])
       (lib.mkIf (!pkgs.stdenv.isDarwin) [
         pkgs.gdb
       ])
     ];
+
+    home.sessionVariables.RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
   };
 }
