@@ -12,6 +12,8 @@
   networking.hostName = "wsl";
   system.stateVersion = "25.05";
 
+  services.nfs.server.enable = true;
+
   wsl = {
     enable = true;
     defaultUser = "brandon";
