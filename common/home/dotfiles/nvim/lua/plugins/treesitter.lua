@@ -1,11 +1,18 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    build = ":TSUpdate",
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "master",
+      },
+    },
+
     config = function()
       require("nvim-treesitter.configs").setup({
-
-      ensure_installed = {"javascript", "typescript", "c", "lua", "rust"},
-
+        ensure_installed = { "javascript", "typescript", "c", "lua", "rust" },
         auto_install = true,
 
         highlight = {
@@ -25,17 +32,14 @@ return {
               ["as"] = { query = "@local.scope", query_group = "locals" },
             },
             selection_modes = {
-              ['@parameter.outer'] = 'v',
-              ['@function.outer'] = 'v',
-              ['@class.outer'] = 'v',
+              ["@parameter.outer"] = "v",
+              ["@function.outer"] = "v",
+              ["@class.outer"] = "v",
             },
             include_surrounding_whitespace = true,
           },
         },
       })
     end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
   },
 }
