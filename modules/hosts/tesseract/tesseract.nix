@@ -18,6 +18,7 @@
       imports = with self.homeModules; [
         gui
         programming
+        terminal
       ];
       home.stateVersion = "26.05";
     };
