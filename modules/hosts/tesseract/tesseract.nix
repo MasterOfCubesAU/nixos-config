@@ -19,6 +19,7 @@
         gui
         programming
         terminal
+        tooling
       ];
       home.stateVersion = "26.05";
     };
