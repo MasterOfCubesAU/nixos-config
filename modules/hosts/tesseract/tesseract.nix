@@ -8,8 +8,12 @@
       tesseract-users
       tesseract-bootloader
       tesseract-networking
+      tesseract-graphics
       core
-      { system.stateVersion = "26.05"; }
+      {
+        system.stateVersion = "26.05";
+        programs.steam.enable = true;
+      }
     ];
   };
 
@@ -40,5 +44,20 @@
 
   flake.nixosModules.tesseract-networking = {
     networking.hostName = "tesseract";
+  };
+
+  flake.nixosModules.tesseract-graphics = { config, pkgs, ... }: {
+    hardware.graphics = {
+      enable = true;
+    };
+    services.xserver.videoDrivers = [ "nvidia" ];
+    hardware.nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 }
