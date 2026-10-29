@@ -2,12 +2,18 @@
   flake.modules.homeManager.nvim =
     { pkgs, lib, ... }:
     {
-      home.packages = [
+    home.packages = [
         (pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped {
           wrapRc = true;
           # WithPython3 = false;
           # WithRuby = false;
+          viAlias = true;
+          vimAlias = true;
+          plugins = with pkgs.vimPlugins; [
+            telescope-nvim
+          ];
           luaRcContent = "--";
+
         })
       ];
       # programs.neovim = {
