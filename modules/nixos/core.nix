@@ -3,6 +3,10 @@
   flake.modules.generic.core = {
     nixpkgs.config.allowUnfree = true;
     home-manager.useGlobalPkgs = true;
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
   flake.modules.darwin.core = {
     imports = [ self.modules.generic.core ];
