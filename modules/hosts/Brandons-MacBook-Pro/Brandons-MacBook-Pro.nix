@@ -1,4 +1,7 @@
 { self, inputs, ... }:
+let
+  username = "brandon";
+in
 {
   # System Definition
   flake.darwinConfigurations.Brandons-MacBook-Pro = inputs.nix-darwin.lib.darwinSystem {
@@ -15,6 +18,7 @@
   };
 
   flake.modules.darwin.Brandons-MacBook-Pro-users = {
+    system.primaryUser = username;
     home-manager.users.brandon = {
       imports = with self.modules.homeManager; [
         inputs.mac-app-util.homeManagerModules.default
@@ -26,8 +30,8 @@
       home.stateVersion = "25.05";
     };
     users.users.brandon = {
-      name = "brandon";
-      home = "/Users/brandon";
+      name = username;
+      home = "/Users/${username}";
     };
   };
 }

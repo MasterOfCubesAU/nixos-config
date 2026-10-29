@@ -1,7 +1,5 @@
 {
-  flake.modules.nixos.darwin = {
-    system.primaryUser = "brandon";
-
+  flake.modules.darwin.darwin-system = {
     # Homebrew
     homebrew = {
       enable = true;

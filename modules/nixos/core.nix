@@ -10,7 +10,10 @@
     fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   };
   flake.modules.darwin.core = {
-    imports = [ self.modules.generic.core ];
+    imports = with self.modules.darwin; [
+      self.modules.generic.core
+      darwin-system
+    ];
   };
   flake.modules.nixos.core = {
     imports = with self.modules.nixos; [
