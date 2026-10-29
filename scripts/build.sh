@@ -8,6 +8,9 @@ case "$(uname -s)" in
   "Linux")
     nixos-rebuild switch --sudo --flake ../ --show-trace
     ;;
+  "Darwin")
+    sudo darwin-rebuild switch --flake ../ --show-trace
+    ;;
   *)
     echo "Unrecognised value for uname -s"
     exit 1

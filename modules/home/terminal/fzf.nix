@@ -1,6 +1,8 @@
 {
-  flake.homeModules.fzf = { pkgs, ... }: {
-    programs.fzf.enableZshIntegration = true;
-    home.packages = with pkgs; [ fzf ];
-  };
+  flake.homeModules.fzf =
+    { pkgs, ... }:
+    {
+      programs.fzf.enableZshIntegration = true;
+      home.packages = with pkgs; [ fzf ];
+    };
 }

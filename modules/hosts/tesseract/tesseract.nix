@@ -2,7 +2,7 @@
 {
   # System Definition
   flake.nixosConfigurations.tesseract = inputs.nixpkgs.lib.nixosSystem {
-    modules = with self.nixosModules; [
+    modules = with self.modules.nixos; [
       ./_hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
       tesseract-users
@@ -17,7 +17,7 @@
     ];
   };
 
-  flake.nixosModules.tesseract-users = {
+  flake.modules.nixos.tesseract-users = {
     home-manager.users.brandon = {
       imports = with self.homeModules; [
         gui
@@ -37,27 +37,29 @@
     };
   };
 
-  flake.nixosModules.tesseract-bootloader = {
+  flake.modules.nixos.tesseract-bootloader = {
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
   };
 
-  flake.nixosModules.tesseract-networking = {
+  flake.modules.nixos.tesseract-networking = {
     networking.hostName = "tesseract";
   };
 
-  flake.nixosModules.tesseract-graphics = { config, pkgs, ... }: {
-    hardware.graphics = {
-      enable = true;
+  flake.modules.nixos.tesseract-graphics =
+    { config, pkgs, ... }:
+    {
+      hardware.graphics = {
+        enable = true;
+      };
+      services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.nvidia = {
+        modesetting.enable = true;
+        powerManagement.enable = false;
+        powerManagement.finegrained = false;
+        open = false;
+        nvidiaSettings = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+      };
     };
-    services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-  };
 }

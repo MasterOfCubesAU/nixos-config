@@ -1,12 +1,17 @@
 { self, ... }:
+let
+  _core = {
+    nixpkgs.config.allowUnfree = true;
+    home-manager.useGlobalPkgs = true;
+  };
+in
 {
-  flake.nixosModules.core = {
-    imports = with self.nixosModules; [
+  flake.modules.darwin.core = _core;
+  flake.modules.nixos.core = {
+    imports = with self.modules.nixos; [
       audio
       display
     ];
-    nixpkgs.config.allowUnfree = true;
-    home-manager.useGlobalPkgs = true;
 
     networking.networkmanager.enable = true;
 
@@ -30,5 +35,6 @@
       variant = "";
     };
     services.printing.enable = true;
-  };
+  }
+  // _core;
 }
