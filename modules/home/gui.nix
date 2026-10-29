@@ -6,7 +6,7 @@
     }:
     {
       home.packages = with pkgs; [
-        discord
+        vesktop
         spotify
         brave
         flameshot
