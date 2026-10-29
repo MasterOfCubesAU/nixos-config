@@ -1,12 +1,13 @@
 { self, ... }:
 {
-  flake.modules.generic.core = {
+  flake.modules.generic.core = { pkgs, ... }: {
     nixpkgs.config.allowUnfree = true;
     home-manager.useGlobalPkgs = true;
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
+    fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   };
   flake.modules.darwin.core = {
     imports = [ self.modules.generic.core ];
