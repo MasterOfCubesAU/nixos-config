@@ -19,7 +19,7 @@
 
   flake.modules.nixos.tesseract-users = {
     home-manager.users.brandon = {
-      imports = with self.homeModules; [
+      imports = with self.modules.homeManager; [
         gui
         programming
         terminal

@@ -1,13 +1,13 @@
 { self, ... }:
 {
-  flake.homeModules.programming =
+  flake.modules.homeManager.programming =
     {
       pkgs,
       lib,
       ...
     }:
     {
-      imports = with self.homeModules; [
+      imports = with self.modules.homeManager; [
         git
       ];
 

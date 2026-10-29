@@ -16,7 +16,7 @@
 
   flake.modules.darwin.Brandons-MacBook-Pro-users = {
     home-manager.users.brandon = {
-      imports = with self.homeModules; [
+      imports = with self.modules.homeManager; [
         inputs.mac-app-util.homeManagerModules.default
         gui
         programming

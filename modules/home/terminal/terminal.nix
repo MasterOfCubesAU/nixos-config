@@ -1,7 +1,7 @@
 { self, ... }:
 {
-  flake.homeModules.terminal = {
-    imports = with self.homeModules; [
+  flake.modules.homeManager.terminal = {
+    imports = with self.modules.homeManager; [
       alacritty
       fzf
       # nvim TODO: Fix nvim

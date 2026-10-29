@@ -1,5 +1,5 @@
 {
-  flake.homeModules.gui =
+  flake.modules.homeManager.gui =
     {
       pkgs,
       ...
