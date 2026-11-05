@@ -9,6 +9,7 @@
       tesseract-bootloader
       tesseract-networking
       tesseract-graphics
+      lumix-tether
       core
       {
         system.stateVersion = "26.05";
